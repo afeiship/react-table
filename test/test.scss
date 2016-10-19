@@ -1,0 +1,4 @@
+@import "../dist/webkit-sassui-textarea.scss";
+.test-webkit-sassui-textarea{
+  @include webkit-sassui-textarea();
+}

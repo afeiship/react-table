@@ -1,0 +1,13 @@
+/*webkit-sassui-textarea Start*/
+@mixin webkit-sassui-textarea($inPadding:10px,$inBorder:#e0e0e0) {
+  box-sizing: border-box;
+  padding: $inPadding;
+  width: 100%;
+  min-height: 100px;
+  border: 1px solid $inBorder;
+  resize: none;
+  overflow: auto;
+  vertical-align: top;
+  -webkit-appearance: none;
+}
+/*webkit-sassui-textarea End*/

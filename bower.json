@@ -1,0 +1,29 @@
+{
+  "name": "webkit-sassui-textarea",
+  "description": "Webkit sass ui module for textarea.",
+  "main": [
+    "dist/webkit-sassui-textarea.css",
+    "dist/webkit-sassui-textarea.scss"
+  ],
+  "authors": [
+    "afei"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "webkit",
+    "cssui",
+    "textarea"
+  ],
+  "homepage": "https://github.com/afeiship/webkit-cssui-absolute-center",
+  "moduleType": [
+    "amd"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src"
+  ]
+}
