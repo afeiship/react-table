@@ -20,7 +20,7 @@ function App() {
       </div>
       <h1>react-table</h1>
       <ReactTable
-        className="w-50 my-2 bg-white border border-solid border-gray-200 text-center"
+        className="wp-4 mx-auto my-2"
         columns={columns}
         dataSource={data}
       />

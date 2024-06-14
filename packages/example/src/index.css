@@ -3,3 +3,21 @@
 @tailwind utilities;
 
 /* Your custom CSS here */
+
+.react-table {
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #fff;
+  th,td {padding: 4px 8px; text-align: left;}
+  thead {
+    tr{
+      background-color: #f2f2f2;
+    }
+  }
+  tbody {
+    tr { cursor: default }
+    tr:hover {
+      background-color: #eee;
+    }
+  }
+}
