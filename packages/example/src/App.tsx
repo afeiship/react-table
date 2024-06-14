@@ -1,5 +1,5 @@
 import ReactTable from '@jswork/react-table/src';
-import './index.css';
+import './index.scss';
 import '@jswork/react-table/src/style.scss';
 
 function App() {
