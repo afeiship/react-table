@@ -93,7 +93,10 @@ export default class ReactTable extends Component<ReactTableProps> {
 
   get rows() {
     const { dataSource, columns, rowKey, templateRow } = this.props;
-    return dataSource?.map((item, index) => templateRow?.(item, columns, rowKey! || index));
+    return dataSource?.map((item, index) => {
+      const key = nx.get(item, rowKey!) || index;
+      return templateRow?.(item, columns, key);
+    });
   }
 
   render() {
