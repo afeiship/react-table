@@ -19,11 +19,13 @@ function App() {
         Build Time: {BUILD_TIME}
       </div>
       <h1>react-table</h1>
-      <ReactTable
-        className="wp-4 mx-auto my-2"
-        columns={columns}
-        dataSource={data}
-      />
+      <div className="debug-red wp-4 mx-auto my-2 rounded-lg overflow-hidden">
+        <ReactTable
+          className="w-full"
+          columns={columns}
+          dataSource={data}
+        />
+      </div>
     </div>
   );
 }

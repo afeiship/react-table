@@ -44,19 +44,20 @@ export type ReactTableProps = {
    * The render function of table row.
    * @param row
    */
-  templateRow?: (row: any, columns: Column[], index: number) => ReactNode;
+  templateRow?: (row: any, columns: Column[], rowKey: string | number) => ReactNode;
   /**
    * The footer view of table.
    */
   footer?: ReactNode;
 } & HTMLAttributes<HTMLTableElement>;
 
-const defaultTemplateRow = (row: any, columns: Column[]) => {
-  return columns.map((item) => {
+const defaultTemplateRow = (row: any, columns: Column[], rowKey: string) => {
+  const rows = columns.map((item) => {
     const { key } = item;
     const label = nx.get(row, key);
     return <td key={key}>{label}</td>;
   });
+  return <tr key={nx.get(row, rowKey)}>{rows}</tr>;
 };
 
 export default class ReactTable extends Component<ReactTableProps> {
@@ -92,13 +93,7 @@ export default class ReactTable extends Component<ReactTableProps> {
 
   get rows() {
     const { dataSource, columns, rowKey, templateRow } = this.props;
-    return dataSource?.map((item, index) => {
-      const row = templateRow?.(item, columns, index);
-      const key = nx.get(item, rowKey!);
-      return (
-        <tr key={key}>{row}</tr>
-      );
-    });
+    return dataSource?.map((item, index) => templateRow?.(item, columns, rowKey! || index));
   }
 
   render() {
