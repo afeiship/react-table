@@ -13,8 +13,8 @@ function App() {
     { id: 3, name: 'Bob', age: 23 },
   ];
 
-  const template = (row, column, rowKey) => {
-    return <tr key={rowKey}>
+  const template = ({ item: row, key }) => {
+    return <tr key={key}>
       <td colSpan={2} className="p-4">
         <div className="y-2 shadow hover:shadow-md bg-white rounded-lg p-4">
           <div className="x-2">

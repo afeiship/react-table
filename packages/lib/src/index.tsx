@@ -44,11 +44,15 @@ export type ReactTableProps = {
    * The render function of table row.
    * @param row
    */
-  template?: (row: any, columns: Column[], rowKey: string | number) => ReactNode;
+  template?: ({ item, columns, key, options }) => ReactNode;
   /**
    * The footer view of table.
    */
   footer?: ReactNode;
+  /**
+   * Extra options for table.
+   */
+  options?: any;
 } & HTMLAttributes<HTMLTableElement>;
 
 const defaultTemplate = (row: any, columns: Column[], rowKey: string) => {
@@ -92,10 +96,10 @@ export default class ReactTable extends Component<ReactTableProps> {
   }
 
   get rows() {
-    const { dataSource, columns, rowKey, template } = this.props;
+    const { dataSource, columns, rowKey, template, options } = this.props;
     return dataSource?.map((item, index) => {
       const key = nx.get(item, rowKey!) || index;
-      return template?.(item, columns, key);
+      return template?.({ item, columns, key, options });
     });
   }
 
@@ -110,6 +114,7 @@ export default class ReactTable extends Component<ReactTableProps> {
       dataSource,
       template,
       footer,
+      options,
       ...rest
     } = this.props;
 
